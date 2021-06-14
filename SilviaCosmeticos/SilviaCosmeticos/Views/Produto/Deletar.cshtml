@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2> Produto deletado com sucesso!</h2>
+
+<div>
+    <h3><strong>Gostaria de realizar mais alguma operação?</strong></h3>
+
+    <form method="get" action="/produto/precadastro">
+        <il>Cadastrar novo produto</il> <input type="submit" value=">" />
+    </form>
+
+    <form method="get" action="/produto/listar">
+        <il>Editar</il> <input type="submit" value=">" />
+    </form>
+
+    <form method="get" action="/produto/listar">
+        <il>Deletar novo produto</il> <input type="submit" value=">" />
+    </form>
+
+    <form method="get" action="/produto/fim">
+        <input type="submit" value="Não, obrigado" />
+    </form>
+
+</div>

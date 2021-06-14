@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+    <h2>Vamos cadastrar o nosso produto</h2>
+
+    <form method="post" action="/produto/cadastrar">
+
+        <label>Qual nome do seu produto? </label>
+        <input type="text" placeholder="Malbec, Kaiak" name="Nome"/><br />
+
+        <label>Qual marca desse produto? </label>
+        <input type="text" placeholder="Natura, Avon" name="Marca"/><br />
+
+        <label>Qual o tipo de produto? </label>
+        <input type="text" placeholder="Perfume, shampoo" name="Tipo" /><br />
+
+        <label>Valor: </label>
+        <input type="text" placeholder="100, 200" name="Valor"/><br />
+
+        <label>Quantidade: </label>
+        <input type="text" placeholder="60, 44" name="Quantidade"/><br />
+
+        <input type="submit" value="Cadastrar" />
+    </form>
+</div>

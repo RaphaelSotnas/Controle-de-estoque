@@ -1,8 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Sílvia Cosméticos";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Seja bem vindo a Sílvia Cosméticos!</h1>
+</div>
+
+<h2>Vamos Cadastrar um produto ?</h2>
+
+<div>
+    <form method="get" action="/produto/PreCadastro">
+        <input type="submit" value="Claro, Vamos lá" />
+    </form>
+
+    <form method="get" action="/produto/fim">
+        <input type="submit" value="Não, obrigado" />
+    </form>
 </div>

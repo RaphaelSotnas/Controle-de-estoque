@@ -1,0 +1,32 @@
+﻿@{ 
+    List<Produto> produtos = ViewBag.Produtos;
+}
+<div>
+    @{
+        foreach ( var produto in produtos)
+        {
+        <div>
+            Nome: @produto.Nome<br />
+            Marca: @produto.Marca<br />
+            Tipo: @produto.Tipo<br />
+            Valor: @produto.Valor<br />                  
+            Quantidade: @produto.Quantidade<br />
+
+            <form method="get" action="/produto/Deletar">
+
+                <input type="hidden" value="@produto.Id" name="id"/>
+                <input type="submit" value="Deletar"/>
+
+            </form>
+
+            <form method="get" action="/produto/ChamarEditar">
+
+                <input type="hidden" value="@produto.Id" name="id" />
+                <input type="submit" value="Editar" />
+
+            </form>
+
+        </div>
+        }        
+    }
+</div>
