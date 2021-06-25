@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SilviaCosmeticos
 {
-    public class ProdutoContext : DbContext
+    public class AplicacaoContext : DbContext
     {
         public DbSet<Produto> Produtos { get; set; }
-
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

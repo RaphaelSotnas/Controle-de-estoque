@@ -1,0 +1,29 @@
+﻿@{
+    List<Usuario> usuarios = ViewBag.Usuarios;
+}
+<div>
+    @{
+        foreach (var usuario in usuarios)
+        {
+            <div>
+                Nome: @usuario.Nome<br />                
+                Email: @usuario.Email<br />
+                                
+                <form method="get" action="/produto/DeletarUsuario ">
+
+                    <input type="hidden" value="@usuario.Id" name="Id" />              
+                    <input type="submit" value="Deletar" />
+
+                </form>
+
+                <form method="get" action="/produto/ChamarEditarUsuario">
+                                       
+                    <input type="hidden" value="@usuario.Id" name="Id"/>
+                    <input type="submit" value="Editar" />
+
+                </form>
+
+            </div>
+        }
+    }
+</div>

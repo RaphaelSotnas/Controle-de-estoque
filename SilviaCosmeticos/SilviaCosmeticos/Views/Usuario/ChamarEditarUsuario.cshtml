@@ -1,0 +1,19 @@
+﻿
+<div>
+    <h2>Vamos editar seu login!</h2>
+
+    <form method="get" action="/produto/EditarUsuario">
+
+        <label>Qual seu nome ? </label>
+        <input type="text" name="Nome" required /><br />
+
+        <label>Seu Email: </label>
+        <input type="text" name="Email" required /><br />
+
+        <label>Sua Senha: </label>
+        <input type="password" name="Senha" required /><br />
+
+        <input type="hidden" value="@ViewData["valor"]" name="Id">
+        <input type="submit" value="salvar alterações" />
+    </form>
+</div>

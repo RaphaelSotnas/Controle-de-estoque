@@ -1,0 +1,22 @@
+﻿
+<div>
+    <h2>Vamos cadastar seu login!</h2>
+</div>
+
+@{
+    <div>
+        <form method="get" action="/produto/usuariocadastro">
+
+            <label>Qual seu nome? </label>
+            <input type="text" name="Nome" /><br />
+
+            <label>Escolha uma senha:</label>
+            <input type="password" name="Senha" /><br />
+
+            <label>Email</label>
+            <input type="text" name="Email" required /><br />
+
+            <input type="submit" value="Cadastrar" />
+        </form>
+    </div>
+}
