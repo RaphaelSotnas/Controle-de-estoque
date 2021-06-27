@@ -29,20 +29,18 @@ namespace SilviaCosmeticos.Controllers
             AplicacaoContext usuarioDoBancoContext = new AplicacaoContext();
 
             var usuariodobanco = usuarioDoBancoContext.Usuarios.FirstOrDefault(x => x.Email == usuario.Email);
-            if (usuariodobanco.Email == usuario.Email)
+            if (usuariodobanco == null)
             {
-                return View("/Views/Usuario/UsuarioExistente.cshtml");
-            }
-            if (usuariodobanco.Nome != usuario.Nome)
-            {
-                return View("/Views/Usuario/UsuarioExistente.cshtml");
-            }
-            if (usuariodobanco.Senha != usuario.Senha)
-            {
-                return View("/Views/Usuario/UsuarioExistente.cshtml");
-            }
 
-
+            }
+            else if (usuariodobanco.Email == usuario.Email)
+            {               
+                return View("/Views/Usuario/UsuarioExistente.cshtml");
+            }
+            else if (usuariodobanco.Nome == usuario.Nome)
+            {
+                return View("/Views/Usuario/UsuarioExistente.cshtml");
+            }            
             if (usuario.Nome != null && usuario.Nome.All(x => char.IsLetter(x)))
             {
                 AplicacaoContext usuarioContext = new AplicacaoContext();
@@ -53,9 +51,7 @@ namespace SilviaCosmeticos.Controllers
             {
                 return View("/views/usuario/Error.cshtml");
             }
-
-            return View("UsuarioSucesso");                 
-
+            return View("UsuarioSucesso");               
         }
 
         [HttpGet]
