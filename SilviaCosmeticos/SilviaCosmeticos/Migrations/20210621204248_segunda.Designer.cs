@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SilviaCosmeticos;
 
 namespace SilviaCosmeticos.Migrations
 {
-    [DbContext(typeof(ProdutoContext))]
-    partial class ProdutoContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AplicacaoContext))]
+    [Migration("20210621204248_segunda")]
+    partial class segunda
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,6 +45,24 @@ namespace SilviaCosmeticos.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("SilviaCosmeticos.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Senha")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
                 });
 #pragma warning restore 612, 618
         }

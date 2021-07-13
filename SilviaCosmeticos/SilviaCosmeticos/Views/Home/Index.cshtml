@@ -2,18 +2,29 @@
     ViewData["Title"] = "Sílvia Cosméticos";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Seja bem vindo a Sílvia Cosméticos!</h1>
+<div >
+    <h1>Seja bem vindo a Sílvia Cosméticos!</h1>
 </div>
 
-<h2>Vamos Cadastrar um produto ?</h2>
+<h2>Faça seu login</h2>
 
 <div>
-    <form method="get" action="/produto/PreCadastro">
-        <input type="submit" value="Claro, Vamos lá" />
-    </form>
+    <form method="get" action="/produto/entrar">
+        <label>Nome</label><br />
+        <input type="text" name="Nome" placeholder="Use apenas caracteres" required /><br />
 
-    <form method="get" action="/produto/fim">
-        <input type="submit" value="Não, obrigado" />
+        <label>Senha</label><br />
+        <input type="password" name="Senha" required /><br />
+
+        <label>Email</label><br />
+        <input type="text" name="Email" required /><br />
+
+        <input type="submit" value="Entrar" />
+    </form>
+    <br />
+    Ainda não possui cadastro?
+
+    <form method="post" action="/produto/PreUsuario">        
+        <input type="submit" value="Não" />
     </form>
 </div>

@@ -1,0 +1,24 @@
+﻿@{
+    List<Usuario> usuarios = ViewBag.Usuarios;
+}
+
+<div>
+    @{
+        foreach (var usuariorecebido in usuarios)
+        {
+            <h1>Seja bem vinda/o @usuariorecebido.Nome </h1>
+        }
+    }
+</div>
+
+<h3>Vamos Cadastrar um produto ?</h3>
+
+<div>
+    <form method="get" action="/produto/PreCadastro">
+        <input type="submit" value="Claro, Vamos lá" />
+    </form>
+
+    <form method="get" action="/produto/fim">
+        <input type="submit" value="Não, obrigado" />
+    </form>
+</div>
