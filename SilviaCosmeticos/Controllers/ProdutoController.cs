@@ -135,9 +135,14 @@ namespace SilviaCosmeticos.Controllers
         [HttpGet]
         public IActionResult EditarProduto(Produto produtoEditado)
         {
-            _usuarioRepository.EditarProduto(produtoEditado);
+            if(produtoEditado != null)
+            {
+                _usuarioRepository.EditarProduto(produtoEditado);
+                return View();
 
-            return View();
+            }
+
+            return View("/Views/Usuario/ErrorGeral.cshtml");
         }
 
         [HttpGet]

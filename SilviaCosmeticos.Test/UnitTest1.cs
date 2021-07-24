@@ -5,6 +5,7 @@ using Moq;
 using SilviaCosmeticos.Repositories;
 using System.Collections.Generic;
 using SilviaCosmeticos.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SilviaCosmeticos.Test
 {
@@ -22,12 +23,36 @@ namespace SilviaCosmeticos.Test
             //Arrange
             Mock<IUsuarioRepository> usuarioRepositoryMock = new Mock<IUsuarioRepository>();
             usuarioRepositoryMock.Setup(x => x.CadastrarUsuario(raphael));
+
             //Act
             ProdutoController produtoController = new ProdutoController(usuarioRepositoryMock.Object);
-            var result = produtoController.UsuarioCadastro(raphael);
+            var result = produtoController.UsuarioCadastro(raphael) as ViewResult;
             //Assert
             usuarioRepositoryMock.Verify(x => x.CadastrarUsuario(raphael), Times.Once);
+            Assert.Equal("UsuarioSucesso", result.ViewName);
         }
+
+        [Fact]
+        public void TestandoUsurarioJaCadastrado()
+        {
+
+            //Arrange
+            Usuario raphael = new Usuario();
+            raphael.Nome = "Raphael";
+            raphael.Senha = "RAPHAEL123";
+            raphael.Email = "raphael123@hotmail.com";
+            Mock<IUsuarioRepository> usuarioRepositoryMock = new Mock<IUsuarioRepository>();
+
+            usuarioRepositoryMock.Setup(x => x.BuscarUsuarioPorEmail(raphael.Email)).Returns(raphael);
+            ProdutoController produtoController = new ProdutoController(usuarioRepositoryMock.Object);
+
+            //Act
+            var result = produtoController.UsuarioCadastro(raphael) as ViewResult;
+
+            //Assert
+            Assert.Equal("/Views/Usuario/UsuarioExistente.cshtml", result.ViewName);
+        }
+
         [Fact]
         public void TestandoBuscarUsuarioPorId()
         {
