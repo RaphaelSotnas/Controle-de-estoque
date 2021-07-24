@@ -1,10 +1,10 @@
 ﻿@{
-    List<Usuario> usuarios = ViewBag.Usuarios;
+    List<Usuario> listadeusuarios = ViewBag.Usuarios;
 }
 
 <div>
     @{
-        foreach (var usuariorecebido in usuarios)
+        foreach (var usuariorecebido in listadeusuarios)
         {
             <h1>Seja bem vinda/o @usuariorecebido.Nome </h1>
         }

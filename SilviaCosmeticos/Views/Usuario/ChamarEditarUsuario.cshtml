@@ -4,16 +4,17 @@
 
     <form method="get" action="/produto/EditarUsuario">
 
-        <label>Qual seu nome ? </label>
+        <label>Qual seu novo nome ? </label>
         <input type="text" name="Nome" required /><br />
 
-        <label>Seu Email: </label>
+        <label>Seu novo Email: </label>
         <input type="text" name="Email" required /><br />
 
-        <label>Sua Senha: </label>
+        <label>Sua nova Senha: </label>
         <input type="password" name="Senha" required /><br />
 
         <input type="hidden" value="@ViewData["valor"]" name="Id">
         <input type="submit" value="salvar alterações" />
     </form>
 </div>
+ 

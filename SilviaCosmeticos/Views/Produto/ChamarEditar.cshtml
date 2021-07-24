@@ -1,12 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
 <div>
     <h2>Vamos recadastrar seu produto!</h2>
 
-    <form method="post" action="/produto/editar">
+    <form method="get" action="/produto/EditarProduto">
 
         <label>Qual nome do novo seu produto? </label>
         <input type="text" placeholder="Malbec, Kaiak" name="Nome" /><br />
@@ -23,7 +19,7 @@
         <label>Quantidade: </label>
         <input type="text" name="Quantidade" /><br />
 
-        <input type="hidden" value="@ViewData["valor"]" name="id">
+        <input type="hidden" value="@ViewData["valor"]" name="Id">
         <input type="submit" value="salvar alterações" />
     </form>   
 </div>
