@@ -10,7 +10,7 @@ namespace SilviaCosmeticos.Repositories
     {
         List<Usuario> ListarUsuarios();
 
-        Usuario EntrarBuscarUsuarioPorId(Usuario usuario);
+        Usuario EntrarBuscarUsuarioPorEmail(Usuario usuario);
 
         Usuario BuscarUsuarioPorEmail(string email);
 

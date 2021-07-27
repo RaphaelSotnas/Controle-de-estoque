@@ -32,7 +32,11 @@ namespace SilviaCosmeticos.Controllers
 
         [HttpGet]
         public ActionResult UsuarioCadastro(Usuario usuario)
-        {
+        { 
+            if(usuario.Nome == null || usuario.Email == null)
+            {
+                return View("/Views/Usuario/ErrorGeral.cshtml");
+            }
             var usuariodobanco = _usuarioRepository.BuscarUsuarioPorEmail(usuario.Email);
             
             if (usuariodobanco != null)
@@ -40,16 +44,15 @@ namespace SilviaCosmeticos.Controllers
                 return View("/Views/Usuario/UsuarioExistente.cshtml");
             }
             _usuarioRepository.CadastrarUsuario(usuario);
-            return View("UsuarioSucesso");               
+            return View("UsuarioSucesso");          
         }
 
         [HttpGet]
-        public ActionResult EntrarBuscarUsuarioPorId(Usuario usuariorecebido)
+        public ActionResult EntrarBuscarUsuarioPorEmail(Usuario usuariorecebido)
         {
-            var usuarioDoBancox = _usuarioRepository.EntrarBuscarUsuarioPorId(usuariorecebido);
+            var usuarioDoBancox = _usuarioRepository.EntrarBuscarUsuarioPorEmail(usuariorecebido);
            
-            if(usuarioDoBancox == null || usuarioDoBancox.Nome != usuariorecebido.Nome 
-                || usuarioDoBancox.Senha != usuariorecebido.Senha)
+            if(usuarioDoBancox.Email == null)
             {
                 return View("/Views/Usuario/ErrorGeral.cshtml");
             }
@@ -89,6 +92,7 @@ namespace SilviaCosmeticos.Controllers
         [HttpGet]
         public IActionResult EditarUsuario(Usuario usuarioRecebido)
         {
+
             _usuarioRepository.EditarUsuario(usuarioRecebido);
             return View("/Views/Usuario/EditarUsuario.cshtml");
         }
@@ -100,7 +104,7 @@ namespace SilviaCosmeticos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Produto produto)
+        public IActionResult CadastrarProduto(Produto produto)
         {
             _usuarioRepository.CadastrarProduto(produto);
 
@@ -108,7 +112,7 @@ namespace SilviaCosmeticos.Controllers
         }
 
         [HttpGet]
-        public IActionResult Listar()
+        public IActionResult ListarProdutos()
         {
             var listaDeProdutos = _usuarioRepository.ListarProdutos();
 
@@ -118,13 +122,13 @@ namespace SilviaCosmeticos.Controllers
         }
 
         [HttpGet]
-        public IActionResult Deletar(int id)
+        public IActionResult DeletarProduto(int id)
         {
             _usuarioRepository.DeletarProduto(id);
             return View();
         }
         [HttpGet]
-        public IActionResult ChamarEditar(int id)
+        public IActionResult ChamarEditarProduto(int id)
         {
             var produtoDoBanco = _usuarioRepository.ChamarEditarProduto(id);
 

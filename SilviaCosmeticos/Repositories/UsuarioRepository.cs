@@ -17,7 +17,7 @@ namespace SilviaCosmeticos.Repositories
             return usuario;
         }
 
-        public Usuario EntrarBuscarUsuarioPorId(Usuario usuariorecebido)
+        public Usuario EntrarBuscarUsuarioPorEmail(Usuario usuariorecebido)
         {
             AplicacaoContext aplicacaoContext = new AplicacaoContext();
             var usuarioDoBancox = aplicacaoContext.Usuarios.FirstOrDefault(x => x.Email == usuariorecebido.Email);
